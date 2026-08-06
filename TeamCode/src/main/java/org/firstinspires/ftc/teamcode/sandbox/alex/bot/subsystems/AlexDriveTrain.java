@@ -1,20 +1,18 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.sandbox.alex.bot.subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-public class OSDriveTrain {
+public class AlexDriveTrain {
     private final DcMotor frMotor, flMotor, brMotor, blMotor;
     private double x, y, turn;
 
-    public OSDriveTrain(HardwareMap hwMap) {
+    public AlexDriveTrain(HardwareMap hwMap) {
         frMotor = hwMap.get(DcMotor.class, "frMotor");
         flMotor = hwMap.get(DcMotor.class, "flMotor");
         brMotor = hwMap.get(DcMotor.class, "brMotor");
         blMotor = hwMap.get(DcMotor.class, "blMotor");
-    }
 
-    public void init() {
         frMotor.setDirection(DcMotor.Direction.FORWARD);
         flMotor.setDirection(DcMotor.Direction.FORWARD);
         brMotor.setDirection(DcMotor.Direction.FORWARD);
@@ -41,10 +39,15 @@ public class OSDriveTrain {
         maxPower = Math.max(maxPower, Math.abs(blPower));
         maxPower = Math.max(maxPower, Math.abs(brPower));
 
+        // Set drive power
         flMotor.setPower(flPower / maxPower);
         frMotor.setPower(frPower / maxPower);
         blMotor.setPower(blPower / maxPower);
         brMotor.setPower(brPower / maxPower);
     }
 
+    public void stop() {
+        setDrivePower(0, 0, 0);
+        update();
+    }
 }
