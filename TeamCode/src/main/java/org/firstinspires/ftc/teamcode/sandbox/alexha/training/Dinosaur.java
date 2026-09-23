@@ -4,8 +4,9 @@ public class Dinosaur {
 
     // Variables
     int heightInFeet;
-    static double RUNNING_SPEED; // in mph
     int weightInPounds;
+    static final double RUNNING_SPEED = 12.0; // in mph
+
 
     // Constructor
     public Dinosaur(int heightInFeet, int weightInPounds) {
