@@ -20,7 +20,7 @@ public class Main extends LinearOpMode {
     }
 
     public void PowerIntake(DcMotor intakeMotor){
-        intakeMotor.setPower`(1);
+        intakeMotor.setPower(1);
     }
 
 
